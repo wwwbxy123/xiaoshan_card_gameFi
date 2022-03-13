@@ -53,7 +53,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (blockchain.account != "" && blockchain.lipToken != null) {
+    if (blockchain.account !== "" && blockchain.lipToken !== null) {
       dispatch(fetchData(blockchain.account));
     }
   }, [blockchain.lipToken]);
@@ -73,7 +73,7 @@ function App() {
             CONNECT
           </button>
           <s.SpacerXSmall />
-          {blockchain.errorMsg != "" ? (
+          {blockchain.errorMsg !== "" ? (
             <s.TextDescription>{blockchain.errorMsg}</s.TextDescription>
           ) : null}
         </s.Container>
