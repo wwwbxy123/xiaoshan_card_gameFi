@@ -1,6 +1,6 @@
 // constants
 import Web3 from "web3";
-import LipToken from "../../contracts/LipToken.json";
+import XiaoshanToken from "../../contracts/Abi.json";
 // log
 import { fetchData } from "../data/dataActions";
 
@@ -46,14 +46,14 @@ export const connect = () => {
         console.log(networkId);
         // eslint-disable-next-line
         if (networkId == 80001) {
-          const lipToken = new web3.eth.Contract(
-            LipToken.abi,
+          const xiaoshanToken = new web3.eth.Contract(
+            XiaoshanToken,
             "0xb316c2c07fa2eab8c6ec7735ad02eb058fac6031"
           );
           dispatch(
             connectSuccess({
               account: accounts[0],
-              lipToken: lipToken,
+              xiaoshanToken: xiaoshanToken,
               web3: web3,
             })
           );

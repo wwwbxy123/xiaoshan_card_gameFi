@@ -25,19 +25,19 @@ export const fetchData = (account) => {
   return async (dispatch) => {
     dispatch(fetchDataRequest());
     try {
-      let allLips = await store
+      let allCards = await store
         .getState()
-        .blockchain.lipToken.methods.getLips()
+        .blockchain.xiaoshanToken.methods.getCards()
         .call();
-      let allOwnerLips = await store
+      let allOwnerCards = await store
         .getState()
-        .blockchain.lipToken.methods.getOwnerLips(account)
+        .blockchain.xiaoshanToken.methods.getOwnerCards(account)
         .call();
 
       dispatch(
         fetchDataSuccess({
-          allLips,
-          allOwnerLips,
+          allCards,
+          allOwnerCards,
         })
       );
     } catch (err) {

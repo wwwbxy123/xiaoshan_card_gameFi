@@ -17,7 +17,7 @@ function App() {
 
   const mintNFT = (_account, _name) => {
     setLoading(true);
-    blockchain.lipToken.methods
+    blockchain.xiaoshanToken.methods
       .createRandomLip(_name)
       .send({
         from: _account,
@@ -36,7 +36,7 @@ function App() {
 
   const levelUpLip = (_account, _id) => {
     setLoading(true);
-    blockchain.lipToken.methods
+    blockchain.xiaoshanToken.methods
       .levelUp(_id)
       .send({
         from: _account,
@@ -53,15 +53,15 @@ function App() {
   };
 
   useEffect(() => {
-    if (blockchain.account !== "" && blockchain.lipToken !== null) {
+    if (blockchain.account !== "" && blockchain.xiaoshanToken !== null) {
       dispatch(fetchData(blockchain.account));
     }
     // eslint-disable-next-line
-  }, [blockchain.lipToken]);
+  }, [blockchain.xiaoshanToken]);
 
   return (
     <s.Screen image={_color}>
-      {blockchain.account === "" || blockchain.lipToken === null ? (
+      {blockchain.account === "" || blockchain.xiaoshanToken === null ? (
         <s.Container flex={1} ai={"center"} jc={"center"}>
           <s.TextTitle>Connect to the game</s.TextTitle>
           <s.SpacerSmall />
@@ -93,7 +93,7 @@ function App() {
           </button>
           <s.SpacerMedium />
           <s.Container jc={"center"} fd={"row"} style={{ flexWrap: "wrap" }}>
-            {data.allLips.map((item, index) => {
+            {data.allCards.map((item, index) => {
               return (
                 <s.Container key={index} style={{ padding: "15px" }}>
                   <LipRenderer lip={item} />
