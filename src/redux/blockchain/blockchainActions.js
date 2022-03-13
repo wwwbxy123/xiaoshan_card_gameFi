@@ -1,6 +1,6 @@
 // constants
 import Web3 from "web3";
-import LipToken from "../../contracts/Abi.json";
+import LipToken from "../../contracts/LipToken.json";
 // log
 import { fetchData } from "../data/dataActions";
 
@@ -38,13 +38,14 @@ export const connect = () => {
       let web3 = new Web3(window.ethereum);
       try {
         const accounts = await window.ethereum.request({
-          method: "eth_requestAccounts",
+          method: "eth_accounts",
         });
         const networkId = await window.ethereum.request({
           method: "net_version",
         });
         console.log(networkId);
-        if (networkId === 80001) {
+        // eslint-disable-next-line
+        if (networkId == 80001) {
           const lipToken = new web3.eth.Contract(
             LipToken.abi,
             "0xb316c2c07fa2eab8c6ec7735ad02eb058fac6031"
@@ -52,7 +53,7 @@ export const connect = () => {
           dispatch(
             connectSuccess({
               account: accounts[0],
-              smartContract: lipToken,
+              lipToken: lipToken,
               web3: web3,
             })
           );

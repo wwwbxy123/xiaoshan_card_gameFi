@@ -56,6 +56,7 @@ function App() {
     if (blockchain.account !== "" && blockchain.lipToken !== null) {
       dispatch(fetchData(blockchain.account));
     }
+    // eslint-disable-next-line
   }, [blockchain.lipToken]);
 
   return (
