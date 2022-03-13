@@ -48,7 +48,7 @@ export const connect = () => {
         if (networkId == 80001) {
           const xiaoshanToken = new web3.eth.Contract(
             XiaoshanToken,
-            "0xb316c2c07fa2eab8c6ec7735ad02eb058fac6031"
+            "0x5245044b4437A733426BAf7104057151C20d0016"
           );
           dispatch(
             connectSuccess({
