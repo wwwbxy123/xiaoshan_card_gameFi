@@ -66,7 +66,7 @@ export const connect = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed("Change network to Polygon Mumbai."));
+          dispatch(connectFailed("Change network to Mumbai Testnet."));
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong."));
