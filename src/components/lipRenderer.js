@@ -1,22 +1,14 @@
 import React from "react";
 // cards
 import { parts } from "../parts/parts";
-import _r1 from "../assets/images/rarity/_rarity_1.png";
-import _r2 from "../assets/images/rarity/_rarity_2.png";
-import _r3 from "../assets/images/rarity/_rarity_3.png";
+import _wrapper from "../assets/images/wrapper/_wrapper.png";
 
 const LipRenderer = ({ lip = null, size = 200, style }) => {
   if (!lip) {
     return null;
   }
-  let rarity = _r1;
 
-  if (lip.rarity >= 80) {
-    rarity = _r2;
-  }
-  if (lip.rarity >= 95) {
-    rarity = _r3;
-  }
+  let logo = _wrapper;
 
   let dnaStr = String(lip.dna);
 
@@ -33,6 +25,12 @@ const LipRenderer = ({ lip = null, size = 200, style }) => {
     position: "absolute",
   };
 
+  const wrapperStyle = {
+    width: "15%",
+    height: "15%",
+    position: "absolute",
+  };
+
   return (
     <div
       style={{
@@ -43,7 +41,7 @@ const LipRenderer = ({ lip = null, size = 200, style }) => {
       }}
     >
       <img alt={"bg"} src={parts.bg[lipDeatils.bg]} style={lipStyle} />
-      <img alt={"rarity"} src={rarity} style={lipStyle} />
+      <img alt={"logo"} src={logo} style={wrapperStyle} />
     </div>
   );
 };
