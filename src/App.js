@@ -34,7 +34,7 @@ function App() {
       });
   };
 
-  const levelUpLip = (_account, _id) => {
+  const levelUpCard = (_account, _id) => {
     setLoading(true);
     blockchain.xiaoshanToken.methods
       .levelUp(_id)
@@ -109,7 +109,7 @@ function App() {
                       disabled={loading ? 1 : 0}
                       onClick={(e) => {
                         e.preventDefault();
-                        levelUpLip(blockchain.account, item.id);
+                        levelUpCard(blockchain.account, item.id);
                       }}
                     >
                       Level Up
