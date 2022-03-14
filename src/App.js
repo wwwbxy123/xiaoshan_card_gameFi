@@ -18,10 +18,10 @@ function App() {
   const mintNFT = (_account, _name) => {
     setLoading(true);
     blockchain.xiaoshanToken.methods
-      .createRandomLip(_name)
+      .createRandomCard(_name)
       .send({
         from: _account,
-        value: blockchain.web3.utils.toWei("0.01", "ether"),
+        value: blockchain.web3.utils.toWei("1", "ether"),
       })
       .once("error", (err) => {
         setLoading(false);
@@ -89,7 +89,7 @@ function App() {
               mintNFT(blockchain.account, "Unknown");
             }}
           >
-            CREATE NFT LIP
+            CREATE XIAOSHAN NFT
           </button>
           <s.SpacerMedium />
           <s.Container jc={"center"} fd={"row"} style={{ flexWrap: "wrap" }}>
